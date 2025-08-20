@@ -21,7 +21,6 @@
     <meta name="twitter:description" content="Premium teaching platform for Agriculture education, offering courses, resources and guidance.">
     <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/bookdonator-97341.appspot.com/o/MostImportantForApp%2FGreen%20Vintage%20Agriculture%20and%20Crops%20Farming%20Logo.png?alt=media&token=6ff3d1bf-355f-45ab-b96b-ef5da257594c">
     
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriAspire Coaching </title>
@@ -132,6 +131,21 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Mobile Nav Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 2px 0;
+            transition: var(--transition);
         }
 
         /* Hero Section */
@@ -477,6 +491,7 @@
         .telegram-messages {
             max-height: 400px;
             overflow-y: auto;
+            padding-right: 10px;
         }
 
         .message {
@@ -758,18 +773,36 @@
                 flex-direction: column;
             }
 
-            .app-content {
-                flex-direction: column;
-            }
-
             .contact-wrapper {
                 flex-direction: column;
             }
         }
 
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
             }
 
             .hero-text h1 {
@@ -784,6 +817,21 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -792,11 +840,18 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo"> AgriAspire<span>Coaching</span></a>
-                <ul class="nav-links">
+                
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#youtube">YouTube</a></li>
                     <li><a href="#telegram">Telegram</a></li>
-                    <li><a href="#app">App</a></li>
+                    <!-- <li><a href="#app">App</a></li> -->
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -813,7 +868,7 @@
                     <p>Join thousands of students learning modern agriculture techniques through our YouTube channel, Telegram community, and interactive learning app.</p>
                     <div class="hero-btns">
                         <a href="#youtube" class="btn">Watch Videos</a>
-                        <a href="#app" class="btn btn-accent">Try Our App</a>
+                        <a href="#telegram" class="btn btn-accent">Join Telegram</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -841,28 +896,28 @@
                             <i class="fas fa-graduation-cap"></i>
                             <div>
                                 <h4>Education</h4>
-                                <p>MSc Agricultural Science</p>
+                                <p>MSc Soil Science and Agriculture <br>University Of Lucknow</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-briefcase"></i>
                             <div>
                                 <h4>Experience</h4>
-                                <p>10+ Years Teaching</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-users"></i>
-                            <div>
-                                <h4>Students</h4>
-                                <p>50,000+ Taught</p>
+                                <p>10+ Years in Agriculture</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-trophy"></i>
                             <div>
                                 <h4>Achievements</h4>
-                                <p>National Agriculture Award</p>
+                                <p>Panchayat Sahayak (3.5 Years) <br>Panchayat Raj Department - Govt of Uttar Pradesh</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Achievements</h4>
+                                <p>Managed hyderabad Rural Development Certificates</p>
                             </div>
                         </div>
                     </div>
@@ -921,7 +976,7 @@ Reasoning Ability – 50 questions, 50 marks, time: 40 minutes......</p>
                     </div>
                     <div class="video-info">
                         <h3>Raksha Bandhan Celebration | A Thread That Ties Hearts 🥰🥰 ❤️ sister's 💖</h3>
-                        <p>Raksha Bandhan is not just a festival, it’s a celebration of love, trust, and the unbreakable bond between brothers and sisters. 🌸
+                        <p>Raksha Bandhan is not just a festival, it's a celebration of love, trust, and the unbreakable bond between brothers and sisters. 🌸
 In this video, we share the joy, memories, and emotions of this beautiful day......</p>
                         <div class="video-stats">
                             <span><i class="fas fa-eye"></i> 100+ views</span>
@@ -1020,7 +1075,7 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
     </section>
 
     <!-- App Section -->
-    <section id="app" class="app-section">
+    <!-- <section id="app" class="app-section">
         <div class="container">
             <div class="section-title">
                 <h2>Learning App</h2>
@@ -1124,7 +1179,7 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1143,7 +1198,8 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@agriedu.com</p>
+                            <p>itssunnybhardwaj@gmail.com
+</p>
                         </div>
                     </div>
                     
@@ -1151,7 +1207,7 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+91 98765 43210</p>
+                            <p>+919936137061</p>
                         </div>
                     </div>
                     
@@ -1159,7 +1215,7 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Location</h4>
-                            <p>Shahjahanpur, Uttar Pradesh, India</p>
+                            <p>Lucknow, Uttar Pradesh, India</p>
                         </div>
                     </div>
 
@@ -1173,25 +1229,18 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
                 </div>
                 
                 <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        
+                    <form  
+                    action="https://formspree.io/f/mqalvldg"
+                    method="POST">
+
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="Subject" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" placeholder="Your message here..." required></textarea>
+                            <textarea name="message" placeholder="Your message here..." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn">Send Message</button>
@@ -1207,9 +1256,9 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
             <div class="social-links">
                 <a href="https://youtube.com/@adiagriaspire-y6d?si=w1EgSK22D9vhG5IY"><i class="fab fa-youtube"></i></a>
                 <a href="https://t.me/Agri1598"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/itsadityabhardwaj2997?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/AdityaB71798871?t=6aZuZProl6UUHbgwdjmJKw&s=09"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/aditya-bhardwaj-96031b281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
             </div>
             
             <p class="copyright">© 2025 AgriAspire Coaching. All Rights Reserved.</p>
@@ -1217,6 +1266,23 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
     </footer>
 
     <script>
+        // Mobile menu toggle functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1239,21 +1305,23 @@ In this video, we share the joy, memories, and emotions of this beautiful day...
         });
         
         // Form submission
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            form.reset();
-        });
-
-        // Simple quiz functionality for demo
-        document.querySelectorAll('.quiz-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.quiz-option').forEach(opt => {
-                    opt.style.background = 'rgba(255, 255, 255, 0.2)';
-                });
-                this.style.background = 'rgba(255, 255, 255, 0.3)';
-            });
+        const contactForm = document.querySelector('form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Let Formspree handle the actual submission
+            setTimeout(function() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                alert('Thank you! Your message has been sent. I will get back to you soon.');
+                contactForm.reset();
+            }, 1500);
         });
     </script>
 </body>
